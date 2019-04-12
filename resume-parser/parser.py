@@ -11,14 +11,11 @@ def convert_PDFtoText(path, pages=None):
 	else:
 		pagenums = set(pages)
 
-
 	output = BytesIO()
 	resource_manager = PDFResourceManager()
-	codec = 'utf-8'
 
-	converter = TextConverter(resource_manager, output, codec=codec, laparams=LAParams())
+	converter = TextConverter(resource_manager, output, laparams=LAParams())
 	interpreter = PDFPageInterpreter(resource_manager, converter)
-
 
 	infile = open(path, 'rb')
 	for page in PDFPage.get_pages(infile, pagenums):
@@ -32,7 +29,7 @@ def convert_PDFtoText(path, pages=None):
 
 
 def main():
-	pprint.pprint(convert_PDFtoText("../resume-parser/myresume.pdf"))
+	pprint.pprint(convert_PDFtoText("../Coding-Assignment/resume-parser/myresume.pdf"))
 
 
 if __name__ == '__main__':
