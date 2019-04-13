@@ -27,21 +27,23 @@ def extract_skills(resume_text):
     print(skills)
 
     skillset = []
-    set_resume = set(tokens)
-    set_csv = set(skillset)
+
     
-    if (set_resume & set_csv):
-        print(set_resume & set_csv)
-        #skillset.append(se)
+    for token in tokens:
+        #print(token)
+        if token in skills:
+            skillset.append()
     
     # check for bi-grams and tri-grams (example: machine learning)
     for token in noun_chunks:
+        #print(token)
         token = token.text.lower().strip()
         if token in skills:
             skillset.append(token)
+
     myskills = [i.capitalize() for i in set([i.lower() for i in skillset])]
     print(myskills)
-    
+
     return myskills
 
 
