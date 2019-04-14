@@ -18,21 +18,24 @@ def extract_skills(resume_text):
 
     # removing stop words and doing word tokenization
     tokens = [token.text for token in nlp_text if not token.is_stop]
-    print(tokens)
+    print(type(tokens))
 
     data = pd.read_csv("../Coding-Assignment/resume-parser/technicalskills.csv") 
     
     # extract values
     skills = list(data.columns.values)
-    print(skills)
+    print(type(skills))
 
     skillset = []
 
     
     for token in tokens:
-        #print(token)
-        if token in skills:
-            skillset.append()
+        #print(type(token))
+        for skill in skills:
+            #print (type(skill))
+            if skill == token:
+                skillset.append(token)
+                print(skillset)
     
     # check for bi-grams and tri-grams (example: machine learning)
     for token in noun_chunks:
