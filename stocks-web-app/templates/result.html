@@ -2,7 +2,9 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Stock Search App: Results for {{name}}</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Stock Search App</title>
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -14,24 +16,89 @@
     	href="https://cdn.pydata.org/bokeh/release/bokeh-0.11.1.min.css"
     	rel="stylesheet" type="text/css">
     	
-		<script src="https://cdn.pydata.org/bokeh/release/bokeh-0.11.1.min.js"></script>
-		{{ script | safe }}
+		<!--<script src="https://cdn.pydata.org/bokeh/release/bokeh-0.11.1.min.js"></script>
+		{{ script | safe }}-->
+		<style>
+        @font-face {
+            font-family: 'Product Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+        }
+        
+        body{
+            font-family: 'Product Sans';
+            margin: 0;
+        }
+        
+        .top {
+            height: 15vh;
+            padding-top: 2vh;
+        }
+        
+        .main {
+            min-height: 65vh;
+            font-size: 2.5vh;
+        }
+        
+        .title {
+            font-size: 6vh;
+        }
+        .foot{
+            height: 6vh;
+        }
+        .button{
+        	margin: auto;
+    		width: 30%;
+    		border-radius: 10px;
+    		border: none;
+    		padding: 10px 20px;
+    		color: aliceblue;
+    		text-align: center;
+        }
+    	</style>
 	</head>
+
 	<body>
 		<div class="container">
-			<h1>Stock Search App</h1>
-			<h2>Results for {{name}}</h2>
-			<p>{{ div | safe }}</p>
-			<p>Data source: <a href="https://www.xyz.com//{{tickersymbol}}">https://www.xyz.com/{{tickersymbol}}</a></p>
-			<a href="/" class="btn btn-primary">Go back</a>
-			<hr>
-			<div class="row">
-				<div class="col-xs-12"
-					<footer>
-						<p>Created by <a href="https://www.twitter.com">Parul Aggarwal</a>. Source code available on <a href="https://github.com/parulagg27/Coding-Assignment">GitHub</a>.</p>
-					</footer>
+			<div class="top">
+				<p class="title text-center">Stock Search App</p>
+			</div>
+
+			<br>
+
+			<div class="main">
+				<div class="container col-lg-12">
+
+					<h2 style="text-align: center">Results</h2>
+					<!--<p>{{ div | safe }}</p>-->
+					<br>
+
+					<h4 style="text-align: center">Current Stock Price for <strong>{{tickersymbol}}</strong></h4>
+        			{% for stock in stocksymbol %}
+        			<p class="title text-center">{{stock.stock_price}}</p>
+        			{% endfor %}
+
+        			<br>
+
+        			<p class="text-center">Data source: <a href="https://www.xyz.com//{{tickersymbol}}">https://www.xyz.com/{{tickersymbol}}</a></p>
+
+        			<br>
+
+					<div class="button">
+						<a href="/" class="btn btn-primary">Go back</a>
+					</div>
 				</div>
 			</div>
+
+			<hr>
+
+
+			<div class="foot">
+                <div class="container">
+                        <p class="text-center">Created by <strong><a href="https://www.twitter.com">Parul Aggarwal</a></strong>. Source code available on <strong><a href="https://github.com/parulagg27/Coding-Assignment">GitHub</a>.</strong></p>
+                </div>
+            </div>
 		</div>
 	</body>
 	</html>
