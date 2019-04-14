@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>-
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <title>Stock Search</title>
+
+
+    <style>
+        @font-face {
+            font-family: 'Product Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+        }
+        
+        body{
+            font-family: 'Product Sans';
+            margin: 0;
+        }
+        
+        .top {
+            height: 15vh;
+            padding-top: 2vh;
+        }
+        
+        .main {
+            min-height: 65vh;
+            font-size: 2.5vh;
+        }
+        
+        .title {
+            font-size: 6vh;
+        }
+        .foot{
+            height: 6vh;
+        }
+    </style>
+</head>
+ 
+<body>
+
+    <div class="container">
+        <div class="top">
+            <p class="title text-center">Stock Search App</p>
+        </div>
+
+        <div class="main">
+            <div class="container col-lg-12">
+                <p class="text-center">
+                    This web app displays current stock price data given the stock symbol with the help of <a href="https://www.xyz.com">XYZ API</a> and database maintained. 
+                    <br>
+                    Please enter a company's stock ticker symbol (e.g., AAPL for Apple, Inc.) and select which type(s) of price data to display.
+                </p>
+
+                <br>
+
+                <form class="form-horizontal" id='userstockform' method='POST' 
+                action='/result'>
+                    <div class="form-group">
+
+                        <label for="tickersymbol" class="control-label col-xs-4">Ticker symbol:</label>
+                        <div class="col-xs-5">
+                            <input type='text' class="form-control" placeholder="e.g., AAPL" name='tickersymbol' />
+                        </div>
+                    </div>
+
+                    <!--<div class="form-group">
+                        <label for="tickersymbol" class="control-label col-xs-4">Data:</label>
+                        <div class="col-xs-6">
+                            <div class="checkbox">
+                                <label><input type='checkbox' name='openingprice' /> Opening price</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input type='checkbox' name='closingprice' checked /> Closing price</label>
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <br>
+
+                    <div class="form-group">
+                        <div class="col-xs-offset-5 col-xs-6">
+                            <input type='submit' value='Search' class="btn btn-success" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <hr>
+            <div class="foot">
+                <div class="container">
+                        <p class="text-center">Created by <strong><a href="https://www.twitter.com">Parul Aggarwal</a></strong>. Source code available on <strong><a href="https://github.com/parulagg27/Coding-Assignment">GitHub</a>.</strong></p>
+                </div>
+            </div>
+    </div>
+</body>
+ 
+</html>
