@@ -5,6 +5,7 @@ from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 import pprint
 
+
 def convert_PDFtoText(path, pages=None):
 	if not pages:
 		pagenums = set()
@@ -13,8 +14,9 @@ def convert_PDFtoText(path, pages=None):
 
 	output = BytesIO()
 	resource_manager = PDFResourceManager()
+	codec = 'utf-8'
 
-	converter = TextConverter(resource_manager, output, laparams=LAParams())
+	converter = TextConverter(resource_manager, output, codec=codec, laparams=LAParams())
 	interpreter = PDFPageInterpreter(resource_manager, converter)
 
 	infile = open(path, 'rb')
@@ -29,7 +31,9 @@ def convert_PDFtoText(path, pages=None):
 
 
 def main():
-	pprint.pprint(convert_PDFtoText("../Coding-Assignment/resume-parser/myresume.pdf"))
+	resume_text = convert_PDFtoText("../Coding-Assignment/resume-parser/myresume.pdf")
+	pprint.pprint (resume_text)
+	print (type(resume_text))
 
 
 if __name__ == '__main__':
